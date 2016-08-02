@@ -20,6 +20,9 @@ npm install --save react@0.13.3 react-router@0.13.3 flux@2.0.3
 
 === Lesson 3 ===
 
+#install loadash
+npm install --save lodash
+
 # componentWillMount
 When
 - Before initial render, both client and server
