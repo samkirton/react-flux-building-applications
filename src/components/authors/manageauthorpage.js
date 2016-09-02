@@ -1,11 +1,15 @@
 "use strict";
 
 var React = require('react');
+var Router = require('react-router');
 
 var AuthorForm = require('./authorform');
 var AuthorApi = require('../../api/author_api');
 
 var ManageAuthorPage = React.createClass({
+	mixins: [
+		Router.Navigation
+	],
 	getInitialState: function() {
 		return {
 			author: { id: '', firstName: '', lastName: '' }
@@ -23,6 +27,7 @@ var ManageAuthorPage = React.createClass({
 		event.preventDefault();
 
 		AuthorApi.saveAuthor(this.state.author);
+		this.transitionTo('authors');
 	},
 
 	render: function() {
