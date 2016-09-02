@@ -48774,32 +48774,23 @@ module.exports = App;
 "use strict";
 
 var React = require('react');
+var Input = require('../common/textinput');
 
 var AuthorForm = React.createClass({displayName: "AuthorForm",
 	render: function() {
 		return (
 			React.createElement("form", null, 
-				React.createElement("label", {htmlFor: "firstName"}, "First Name"), 
-				React.createElement("input", {type: "text", 
+				React.createElement(Input, {
 					name: "firstName", 
-					className: "form-control", 
-					placeholder: "First Name", 
-					ref: "firstName", 
-					onChange: this.props.onChange, 
-					value: this.props.author.firstName}), 
+					label: "First Name", 
+					value: this.props.author.firstName, 
+					onChange: this.props.onChange}), 
 
-				React.createElement("br", null), 
-
-				React.createElement("label", {htmlFor: "lastName"}, "Last Name"), 
-				React.createElement("input", {type: "text", 
+				React.createElement(Input, {
 					name: "lastName", 
-					className: "form-control", 
-					placeholder: "Last Name", 
-					ref: "lastName", 
-					onChange: this.props.onChange, 
-					value: this.props.author.lastName}), 
-
-				React.createElement("br", null), 
+					label: "Last Name", 
+					value: this.props.author.lastName, 
+					onChange: this.props.onChange}), 
 
 				React.createElement("input", {type: "submit", value: "Save", className: "btn"})
 			)
@@ -48809,7 +48800,7 @@ var AuthorForm = React.createClass({displayName: "AuthorForm",
 
 module.exports = AuthorForm;
 
-},{"react":197}],203:[function(require,module,exports){
+},{"../common/textinput":207,"react":197}],203:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -48954,6 +48945,48 @@ module.exports = Header;
 "use strict";
 
 var React = require('react');
+
+var Input = React.createClass({displayName: "Input",
+	propTypes: {
+		name: React.PropTypes.string.isRequired,
+		label: React.PropTypes.string.isRequired,
+		onChange: React.PropTypes.func.isRequired,
+		placeholder: React.PropTypes.string,
+		value: React.PropTypes.string,
+		error: React.PropTypes.string
+	},
+
+	render: function() {
+		var wrapperClass = 'form-group';
+		if (this.props.error && this.props.error.length > 0) {
+			wrapperClass += " " + 'has-error';
+		}
+
+		return (
+			React.createElement("div", {className: wrapperClass}, 
+				React.createElement("label", {htmlFor: this.props.name}, this.props.label), 
+				React.createElement("div", {className: "field"}, 
+					React.createElement("input", {type: "text", 
+						name: this.props.name, 
+						className: "form-control", 
+						placeholder: this.props.placeholder, 
+						ref: this.props.name, 
+						value: this.props.value, 
+						onChange: this.props.onChange}), 
+
+					React.createElement("div", {className: "input"}, this.props.error)
+				)
+			)
+		);
+	}
+});
+
+module.exports = Input;
+
+},{"react":197}],208:[function(require,module,exports){
+"use strict";
+
+var React = require('react');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -48971,7 +49004,7 @@ var Home = React.createClass({displayName: "Home",
 
 module.exports = Home;
 
-},{"react":197,"react-router":28}],208:[function(require,module,exports){
+},{"react":197,"react-router":28}],209:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -48992,7 +49025,7 @@ var NotFoundPage = React.createClass({displayName: "NotFoundPage",
 
 module.exports = NotFoundPage;
 
-},{"react":197,"react-router":28}],209:[function(require,module,exports){
+},{"react":197,"react-router":28}],210:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49003,7 +49036,7 @@ Router.run(routes, function(Handler) {
 	React.render(React.createElement(Handler, null), document.getElementById('app'));
 });
 
-},{"./routes":210,"react":197,"react-router":28}],210:[function(require,module,exports){
+},{"./routes":211,"react":197,"react-router":28}],211:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -49029,4 +49062,4 @@ var routes = (
 
 module.exports = routes;
 
-},{"./components/about/aboutpage":200,"./components/app":201,"./components/authors/authorpage":204,"./components/authors/manageauthorpage":205,"./components/homePage":207,"./components/notfound":208,"react":197,"react-router":28}]},{},[209]);
+},{"./components/about/aboutpage":200,"./components/app":201,"./components/authors/authorpage":204,"./components/authors/manageauthorpage":205,"./components/homePage":208,"./components/notfound":209,"react":197,"react-router":28}]},{},[210]);
