@@ -9,6 +9,8 @@ var source = require('vinyl-source-stream'); // Use conventional text streams wi
 var concat = require('gulp-concat');  
 var lint = require('gulp-eslint'); // lint our JS files, including our JSX
 
+
+
 var config = {
 	port: 9005,
 	devBaseUrl: 'http://localhost',
@@ -18,7 +20,8 @@ var config = {
 		images: './src/images/*',
 		css: [
 			'node_modules/bootstrap/dist/css/bootstrap.min.css',
-			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
+			'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+			'node_modules/toastr/toastr.css'
 		],
 		dist: './dist',
 		mainJs: './src/main.js'

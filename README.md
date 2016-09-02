@@ -20,8 +20,15 @@ npm install --save react@0.13.3 react-router@0.13.3 flux@2.0.3
 
 === Lesson 3 ===
 
-#install loadash
+# install loadash
 npm install --save lodash
+
+=== Lesson 5 ===
+
+# install toastr
+npm install --save toastr@2.1.0
+
+=== Lifecycle methods ===
 
 # componentWillMount
 When
