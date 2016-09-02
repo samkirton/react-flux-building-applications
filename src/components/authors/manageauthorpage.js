@@ -2,11 +2,16 @@
 
 var React = require('react');
 
+var AuthorForm = require('./authorform');
+
 var ManageAuthorPage = React.createClass({
 
 	render: function() {
 		return (
-			<h1>Manage Author</h1>
+			<div>
+				<h1>Manage Author</h1>
+				<AuthorForm />
+			</div>
 		);
 	}
 });
