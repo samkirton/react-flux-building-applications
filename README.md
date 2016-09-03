@@ -28,6 +28,11 @@ npm install --save lodash
 # install toastr
 npm install --save toastr@2.1.0
 
+=== Lesson 6 ===
+
+# install object-assign
+npm install --save object-assign
+
 === Lifecycle methods ===
 
 # componentWillMount
